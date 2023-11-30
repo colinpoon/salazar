@@ -80,3 +80,8 @@ body,
     @apply bg-background text-foreground;
   }
 }
+
+/* //clerk - user avatar focus override */
+  .cl-internal-g6a67s:focus {
+    box-shadow: none !important;
+  }
