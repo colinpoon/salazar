@@ -11,11 +11,14 @@ module.exports = {
     colors: {
       'brand-secondary': '#E7DAD9',
       'brand-primary': '#9BFF5D',
+      'brand-muted-1': '#5F5A5A',
+      'brand-muted-2': '#413E3E',
 
       'action-primary-hover': '#9BFF5D',
       
-      'black': '#000',
-      'white': '#fff',
+      'black': '#131212',
+      'black': '#131212',
+      'white': '#f2f2f2',
       
     },
     container: {
