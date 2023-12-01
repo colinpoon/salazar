@@ -1,20 +1,34 @@
 'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
+import { Montserrat } from 'next/font/google';
+
+import { cn } from '@/lib/utils';
+
+const montserrate = Montserrat({
+  weight: '600',
+  subsets: ['latin'],
+});
 
 const Sidebar = () => {
   return (
-    <div className="flex flex-col h-full bg-brand-secondary text-black">
+    <div className="flex flex-col h-full bg-black text-white">
       <div className="px-[32] pt-[32px] flex-1">
         <Link
           href={'/dashboard'}
-          className="flex-items-center pl-3 mb-14"
+          className="flex flex-row justify-between items-start px-[32px] mb-14"
         >
-          <div className="relative w-8 h-8 mr-4">
-            <Image fill alt="Salazar Logo" src={'/logo.png'} />
+          <div className="relative w-10 h-8 mr-4">
+            <Image fill alt="Salazar Logo" src={'/lg-logo-1.png'} />
           </div>
-          Salazar
+          <h1
+            className={cn(
+              'font-medium text-2xl',
+              montserrate.className
+            )}
+          >
+            Salazar
+          </h1>
         </Link>
       </div>
     </div>
