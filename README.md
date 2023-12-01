@@ -1,4 +1,6 @@
-## Salazar - SaaS AI Platform
+## Salazar
+ 
+ SaaS AI Platform
 
 ## Getting Started
 
