@@ -8,6 +8,10 @@ module.exports = {
     './src/**/*.{ts,tsx}',
 	],
   theme: {
+    colors: {
+      'action-primary-hover': '#9BFF5D',
+      'black': '#000',
+    },
     container: {
       center: true,
       padding: "2rem",
