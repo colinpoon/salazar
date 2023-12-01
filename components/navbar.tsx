@@ -8,7 +8,8 @@ const Navbar = () => {
       <Button variant="ghost" size="icon" className="md:hidden">
         <Menu />
       </Button>
-      <div className="border rounded-full border-black hover:border-[#9BFF5D] active:border-[#9BFF5D] focus:border-[#9BFF5D]">
+      <div className="border rounded-full border-black">
+        {/* <div className="border rounded-full border-black hover:border-[#9BFF5D] active:border-[#9BFF5D] focus:border-[#9BFF5D]"> */}
         <UserButton afterSignOutUrl="/" />
       </div>
     </div>

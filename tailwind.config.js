@@ -9,8 +9,14 @@ module.exports = {
 	],
   theme: {
     colors: {
+      'brand-secondary': '#E7DAD9',
+      'brand-primary': '#9BFF5D',
+
       'action-primary-hover': '#9BFF5D',
+      
       'black': '#000',
+      'white': '#fff',
+      
     },
     container: {
       center: true,
