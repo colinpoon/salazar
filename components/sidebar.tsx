@@ -13,6 +13,7 @@ import {
   Settings,
   VideoIcon,
 } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 const montserrate = Montserrat({
   weight: '600',
@@ -75,6 +76,8 @@ const userSettings = [
 ];
 
 const Sidebar = () => {
+  const pathname = usePathname();
+
   return (
     <div className="flex flex-col justify-between h-full bg-black text-white">
       <div className="px-[32] pt-[32px] flex-1">
@@ -97,7 +100,12 @@ const Sidebar = () => {
               href={route.href}
               key={route.href}
               // className="text-sm group p-3 w-full justify-start font-medium cursor-pointer hover:text-brand-primary hover:bg-white/10 rounded-lg transition"
-              className="text-sm group p-3 w-full justify-start font-medium cursor-pointer hover:text-brand-primary transition"
+              className={cn(
+                'text-sm group p-3 w-full justify-start font-medium cursor-pointer hover:text-brand-primary transition',
+                pathname === route.href
+                  ? 'text-white'
+                  : 'text-brand-muted-2'
+              )}
             >
               <div className="flex items-center flex-1">
                 <route.icon
@@ -121,7 +129,12 @@ const Sidebar = () => {
               href={route.href}
               key={route.href}
               // className="text-sm group p-3 w-full justify-start font-medium cursor-pointer hover:text-brand-primary hover:bg-white/10 rounded-lg transition"
-              className="text-sm group p-3 w-full justify-start font-medium cursor-pointer hover:bg-white/10 rounded-full transition"
+              className={cn(
+                'text-sm group p-3 w-full justify-start font-medium cursor-pointer hover:bg-white/10 rounded-full transition',
+                pathname === route.href
+                  ? 'text-white'
+                  : 'text-brand-primary'
+              )}
             >
               <div className="flex items-center flex-1">
                 <route.icon className={cn('h-6 w-6', route.color)} />
