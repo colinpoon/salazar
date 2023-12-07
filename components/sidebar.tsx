@@ -104,7 +104,7 @@ const Sidebar = () => {
                 'text-sm group p-3 w-full justify-start font-medium cursor-pointer hover:text-brand-primary transition',
                 pathname === route.href
                   ? 'text-white'
-                  : 'text-brand-muted-2'
+                  : 'text-brand-muted-1'
               )}
             >
               <div className="flex items-center flex-1">
@@ -117,6 +117,9 @@ const Sidebar = () => {
           ))}
         </div>
       </div>
+
+      {/* sidebar footer */}
+
       <div className="flex flex-row items-center justify-between mb-4 px-[32px]">
         <Link href={'/dashboard'} className="flex items-center">
           <div className="relative w-10 h-8">
@@ -133,7 +136,7 @@ const Sidebar = () => {
                 'text-sm group p-3 w-full justify-start font-medium cursor-pointer hover:bg-white/10 rounded-full transition',
                 pathname === route.href
                   ? 'text-white'
-                  : 'text-brand-primary'
+                  : 'text-brand-muted-1'
               )}
             >
               <div className="flex items-center flex-1">

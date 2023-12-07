@@ -16,7 +16,7 @@ module.exports = {
 
       'action-primary-hover': '#9BFF5D',
       
-      'black': '#131212',
+      'black-0': '#000',
       'black': '#131212',
       'white': '#f2f2f2',
       
