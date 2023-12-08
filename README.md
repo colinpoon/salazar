@@ -25,4 +25,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Built With
 Next.js (ts)
 Clerk
+axios
 Shadcn
+Tailwind
+Open Ai
+Prisma
+Stripe

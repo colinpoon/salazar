@@ -1,10 +1,14 @@
 'use client';
 
+import axios from 'axios';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Heading } from '@/components/heading';
 import { useForm } from 'react-hook-form';
 import { MessageSquare } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 
 import { formSchema } from './constants';
 import {
@@ -13,10 +17,9 @@ import {
   FormField,
   FormItem,
 } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 
 export default function ConversationPage() {
+  const router = useRouter();
   // const form = useForm<z.infer<typeof formSchema>>({
   //   resolver: zodResolver(formSchema),
   //   defaultValues: {
@@ -43,6 +46,12 @@ export default function ConversationPage() {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     console.log(values);
+    try {
+    } catch (error: any) {
+      console.log(error);
+    } finally {
+      router.refresh();
+    }
   };
 
   return (
