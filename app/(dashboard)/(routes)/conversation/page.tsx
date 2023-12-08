@@ -17,11 +17,26 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
 export default function ConversationPage() {
-  const form = useForm<z.infer<typeof formSchema>>({
+  // const form = useForm<z.infer<typeof formSchema>>({
+  //   resolver: zodResolver(formSchema),
+  //   defaultValues: {
+  //     prompt: '',
+  //   },
+  // });
+  const formSchema = z.object({
+    prompt: z.string().default(''),
+    // ...other fields
+  });
+
+  type FormValues = z.infer<typeof formSchema>;
+
+  type DefaultValues = Omit<FormValues, 'prompt'>;
+
+  const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: '',
-    },
+    } as DefaultValues,
   });
   // loading state
   const isLoading = form.formState.isSubmitting;
@@ -72,6 +87,7 @@ export default function ConversationPage() {
           </form>
         </Form>
       </div>
+      <div className="sapce-y-4 mt-4">content</div>
     </div>
   );
 }
