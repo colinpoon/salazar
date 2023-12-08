@@ -23,7 +23,7 @@ export const Heading = ({
           <Icon className={cn('w-10 h-10', iconColor)} />
         </div>
       </div>
-      <div className="flex flex-col justify-center gap-3">
+      <div className="flex flex-col justify-center gap-3 mb-8">
         <h2 className="text-2xl md:text-4xl text-black-500 text-center font-bold">
           {title}
         </h2>
