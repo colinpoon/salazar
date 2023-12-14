@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Spline from '@splinetool/react-spline';
 
 interface Emptyprops {
   label: string;
@@ -7,10 +8,14 @@ interface Emptyprops {
 export const Empty = () => {
   return (
     <div className="h-full p-3 md:px-6 flex flex-col items-center justify-center">
-      <div className="relative h-72 w-72">
-        {/* <Image alt="empty" fill src={'/empty.png'} /> */}
-        EMPTY
-      </div>
+      <Spline scene="https://prod.spline.design/WxlTWgxyxb5W8xai/scene.splinecode" />
+      {/* <Image
+          alt="empty"
+          fill
+          src={
+            ''
+          }
+        /> */}
     </div>
   );
 };
