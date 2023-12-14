@@ -122,7 +122,9 @@ export default function ConversationPage() {
         </Form>
       </div>
       <div className="px-4 lg:px-8 mt-4 w-full">
-        {messages.length === 0 && !isLoading && <Empty />}
+        {messages.length === 0 && !isLoading && (
+          <Empty label="No Conversation" />
+        )}
 
         <div className="flex flex-col-reverse gap-y-4 p-3 md:px-6">
           {messages.map((message) => (
