@@ -3,13 +3,16 @@
 import axios from 'axios';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useState } from 'react';
+
 import { Heading } from '@/components/heading';
+import { Empty } from '@/components/empty';
+
 import { useForm } from 'react-hook-form';
 import { MessageSquare } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
-
 import { formSchema } from './constants';
 import {
   Form,
@@ -17,7 +20,7 @@ import {
   FormField,
   FormItem,
 } from '@/components/ui/form';
-import { useState } from 'react';
+
 import { ChatCompletionRequestMessage } from 'openai';
 
 export default function ConversationPage() {
@@ -118,8 +121,10 @@ export default function ConversationPage() {
           </form>
         </Form>
       </div>
-      <div className="sapce-y-4 mt-4">
-        <div className="flex flex-col-reverse gap-y-4">
+      <div className="px-4 lg:px-8 mt-4 w-full">
+        {messages.length === 0 && !isLoading && <Empty />}
+
+        <div className="flex flex-col-reverse gap-y-4 p-3 md:px-6">
           {messages.map((message) => (
             <div key={message.content}>{message.content}</div>
           ))}
