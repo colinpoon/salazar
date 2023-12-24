@@ -1,16 +1,18 @@
-// import { Spline } from '@splinetool/runtime';
+import Spline from '@splinetool/react-spline';
 
-// // const canvas = document.getElementById('canvas3d');
-// // const app = new Application(canvas);
-// // app.load(
-// //   'https://prod.spline.design/WxlTWgxyxb5W8xai/scene.splinecode'
-// // );
-// const Loading = () => {
-//   return (
-//     <div>
-//       <Spline scene="https://prod.spline.design/WxlTWgxyxb5W8xai/scene.splinecode" />
-//     </div>
-//   );
-// };
+// interface Emptyprops {
+//   label: string;
+// }
 
-// export default Loading;
+export const Loading = () => {
+  return (
+    <div className="h-full flex flex-col items-center justify-center">
+      <div className="h-75 w-75">
+        <p className="text-muted-foreground test-sm p-3 md:px-6">
+          {/* <p className="text-muted-foreground test-sm absolute top-[75%] left-[48%]"> */}
+        </p>
+        <Spline scene="https://prod.spline.design/WxlTWgxyxb5W8xai/scene.splinecode" />
+      </div>
+    </div>
+  );
+};

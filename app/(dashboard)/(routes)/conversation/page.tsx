@@ -20,8 +20,9 @@ import {
   FormField,
   FormItem,
 } from '@/components/ui/form';
-
+import { cn } from '@/lib/utils';
 import { ChatCompletionRequestMessage } from 'openai';
+import { Loading } from '@/components/loading';
 
 export default function ConversationPage() {
   const router = useRouter();
@@ -121,10 +122,18 @@ export default function ConversationPage() {
           </form>
         </Form>
       </div>
+      <div className="space-y-4 mt4">
+        {isLoading && (
+          <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
+            <Loading />
+          </div>
+        )}
+      </div>
       <div className="px-4 lg:px-8 mt-4 w-full">
         {messages.length === 0 && !isLoading && (
           <Empty label="No Conversation" />
         )}
+        {/* <div key={messages.content} className={cn('p-8')}></div> */}
 
         <div className="flex flex-col-reverse gap-y-4 p-3 md:px-6">
           {messages.map((message) => (
