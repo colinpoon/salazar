@@ -12,7 +12,7 @@ export const Empty = ({ label }: Emptyprops) => {
           {/* <p className="text-muted-foreground test-sm absolute top-[75%] left-[48%]"> */}
           {label}
         </p>
-        {/* <Spline scene="https://prod.spline.design/WxlTWgxyxb5W8xai/scene.splinecode" /> */}
+        <Spline scene="https://prod.spline.design/WxlTWgxyxb5W8xai/scene.splinecode" />
       </div>
     </div>
   );

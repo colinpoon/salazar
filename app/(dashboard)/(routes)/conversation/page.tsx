@@ -124,8 +124,8 @@ export default function ConversationPage() {
       </div>
       <div className="space-y-4 mt4">
         {isLoading && (
-          <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
-            <Loading />
+          <div className="p-8 rounded-lg w-full flex items-center justify-center">
+            <Loading label="Loading..." />
           </div>
         )}
       </div>
