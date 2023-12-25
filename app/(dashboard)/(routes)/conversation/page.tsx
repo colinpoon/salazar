@@ -135,7 +135,7 @@ export default function ConversationPage() {
         )}
         {/* <div key={messages.content} className={cn('p-8')}></div> */}
 
-        <div className="flex flex-col-reverse gap-y-4 p-3 md:px-6">
+        <div className="flex flex-col gap-y-4 p-3 md:px-6">
           {messages.map((message) => (
             <div key={message.content}>{message.content}</div>
           ))}
