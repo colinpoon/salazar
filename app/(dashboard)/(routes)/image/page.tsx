@@ -5,20 +5,29 @@ import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import Spline from '@splinetool/react-spline';
-import { ChatCompletionRequestMessage } from 'openai';
+import {} from 'openai';
 
 import { Heading } from '@/components/heading';
 import { Empty } from '@/components/empty';
 import { Loading } from '@/components/loading';
-import { UserAvatar } from '@/components/user-avatar';
-import { AiAvatar } from '@/components/ai-avatar';
+import {
+  amountOptions,
+  resolutionOptions,
+  formSchema,
+} from './constants';
 
 import { useForm } from 'react-hook-form';
 import { ImageIcon } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
-import { formSchema } from './constants';
 import { cn } from '@/lib/utils';
 import {
   Form,
@@ -29,51 +38,61 @@ import {
 
 export default function ImagePage() {
   const router = useRouter();
-  const [messages, setMessages] = useState<
-    ChatCompletionRequestMessage[]
-  >([]);
-  // const form = useForm<z.infer<typeof formSchema>>({
+
+  const [images, setImages] = useState<string[]>([]);
+
+  // // default values use form hook
+  // const formSchema = z.object({
+  //   prompt: z.string().default(''),
+  //   // ...other fields
+  // });
+  // type FormValues = z.infer<typeof formSchema>;
+  // type DefaultValues = Omit<FormValues, 'prompt'>;
+  // const form = useForm<FormValues>({
   //   resolver: zodResolver(formSchema),
   //   defaultValues: {
   //     prompt: '',
-  //   },
+  //     amount: '1',
+  //     resolution: '512x512',
+  //   } as DefaultValues,
   // });
+
+  type PromptFormValues = {
+    prompt: string;
+    amount: string;
+    resolution: string;
+  };
+
   const formSchema = z.object({
     prompt: z.string().default(''),
-    // ...other fields
+    amount: z.string().default('1'),
+    resolution: z.string().default('1'),
   });
 
   type FormValues = z.infer<typeof formSchema>;
 
-  type DefaultValues = Omit<FormValues, 'prompt'>;
-
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      prompt: '',
-    } as DefaultValues,
+    defaultValues: formSchema.parse({}) as FormValues,
   });
+
   // loading state
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     console.log(values);
     try {
-      const userMessage: ChatCompletionRequestMessage = {
-        role: 'user',
-        content: values.prompt,
-      };
-      const newMessages = [...messages, userMessage];
+      setImages([]);
 
-      const response = await axios.post('/api/conversations', {
-        messages: newMessages,
-      });
+      const response = await axios.post('/api/image', values);
 
-      setMessages((current) => [
-        ...current,
-        userMessage,
-        response.data,
-      ]);
+      const urls = response.data.map(
+        (image: { url: string }) => image.url
+      );
+      // see [setimage] structure
+
+      setImages(urls);
+
       form.reset();
     } catch (error: any) {
       //is premium model?
@@ -109,7 +128,7 @@ export default function ImagePage() {
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-tranparent"
                       disabled={isLoading}
-                      placeholder="Ask me anything"
+                      placeholder="A picture of a Spider-Man in space"
                       autoComplete="off"
                       {...field}
                     ></Input>
@@ -117,6 +136,37 @@ export default function ImagePage() {
                 </FormItem>
               )}
             />
+            <FormField
+              control={form.control}
+              name="amount"
+              render={({ field }) => (
+                <FormItem className="col-span-12 lg:col-span-2">
+                  <Select
+                    disabled={isLoading}
+                    onValueChange={field.onChange}
+                    value={field.value}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue defaultValue={field.value} />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {amountOptions.map((option) => (
+                        <SelectItem
+                          key={option.value}
+                          value={option.value}
+                        >
+                          {option.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </FormItem>
+              )}
+            />
+
             <Button
               className="col-span-12 lg:col-span-2 w-full"
               disabled={isLoading}
@@ -128,37 +178,18 @@ export default function ImagePage() {
       </div>
       <div className="space-y-4 mt4 w-full">
         {isLoading && (
-          <div className="px-8 rounded-lg w-full flex items-start justify-start">
+          <div className="px-8">
             <Loading label="Loading..." />
           </div>
         )}
       </div>
       <div className="px-4 lg:px-8 w-full">
-        {messages.length === 0 && !isLoading && (
-          <Empty label="No Conversation" />
+        {images.length === 0 && !isLoading && (
+          <Empty label="No images generated." />
         )}
         {/* <div key={messages.content} className={cn('p-8')}></div> */}
 
-        <div className="flex flex-col gap-y-4 ">
-          {messages.map((message) => (
-            <div
-              key={message.content}
-              className={cn(
-                'flex flex-row p-8 w-fit items-center gap-x-8 rounded-lg',
-                message.role === 'user'
-                  ? 'bg-white border-black/10'
-                  : 'bg-brand-muted-2 text-white '
-              )}
-            >
-              {message.role === 'user' ? (
-                <UserAvatar />
-              ) : (
-                <AiAvatar />
-              )}
-              <p className="text-sm">{message.content}</p>
-            </div>
-          ))}
-        </div>
+        <div>Images will be here</div>
       </div>
     </div>
   );

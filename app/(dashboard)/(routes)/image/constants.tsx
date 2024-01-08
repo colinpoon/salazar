@@ -12,7 +12,7 @@ export const formSchema = z.object({
 
 // create an array of options for users
 
-export const imageOptions = [
+export const amountOptions = [
   {
     value: '1',
     label: '1 Image',
