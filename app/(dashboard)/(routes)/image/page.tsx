@@ -14,7 +14,7 @@ import { UserAvatar } from '@/components/user-avatar';
 import { AiAvatar } from '@/components/ai-avatar';
 
 import { useForm } from 'react-hook-form';
-import { MessageSquare } from 'lucide-react';
+import { ImageIcon } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
@@ -27,7 +27,7 @@ import {
   FormItem,
 } from '@/components/ui/form';
 
-export default function ConversationPage() {
+export default function ImagePage() {
   const router = useRouter();
   const [messages, setMessages] = useState<
     ChatCompletionRequestMessage[]
@@ -86,9 +86,9 @@ export default function ConversationPage() {
   return (
     <div className="flex flex-col items-center px-4 py-4 md:px-[32px] md:py-[32px] h-full">
       <Heading
-        title="Conversation"
-        desc="Leverage AI to create content or answer questions"
-        icon={MessageSquare}
+        title="Image Generation"
+        desc="Leverage AI to create unique images"
+        icon={ImageIcon}
         iconColor="text-brand-primary"
         bgColor="bg-brand-muted-2"
       />
