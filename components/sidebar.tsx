@@ -104,7 +104,8 @@ const Sidebar = () => {
                 'text-sm group p-3 w-full justify-start font-medium cursor-pointer hover:text-brand-primary transition',
                 pathname === route.href
                   ? 'text-white'
-                  : 'text-brand-muted-1'
+                  : // ? 'text-brand-muted-1'
+                    'text-brand-muted-1'
               )}
             >
               <div className="flex items-center flex-1">

@@ -4,6 +4,7 @@ import axios from 'axios';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
+import Spline from '@splinetool/react-spline';
 
 import { Heading } from '@/components/heading';
 import { Empty } from '@/components/empty';
@@ -96,7 +97,7 @@ export default function ConversationPage() {
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="rounded-lg border w-full p-3 md:px-6 focus-within:shadow-sm grid
-          grid-cols-12 gap-2"
+          grid-cols-12 gap-2 mb-8"
           >
             <FormField
               name="prompt"
@@ -107,6 +108,7 @@ export default function ConversationPage() {
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-tranparent"
                       disabled={isLoading}
                       placeholder="Ask me anything"
+                      autoComplete="off"
                       {...field}
                     ></Input>
                   </FormControl>
@@ -122,9 +124,9 @@ export default function ConversationPage() {
           </form>
         </Form>
       </div>
-      <div className="space-y-4 mt4">
+      <div className="space-y-4 mt4 w-full">
         {isLoading && (
-          <div className="p-8 rounded-lg w-full flex items-center justify-center">
+          <div className="px-8 rounded-lg w-full flex items-start justify-start">
             <Loading label="Loading..." />
           </div>
         )}
@@ -137,7 +139,17 @@ export default function ConversationPage() {
 
         <div className="flex flex-col gap-y-4 p-3 md:px-6">
           {messages.map((message) => (
-            <div key={message.content}>{message.content}</div>
+            <div
+              key={message.content}
+              className={cn(
+                'p-8 w-full items-start gap-x-8 rounded-lg',
+                message.role === 'user'
+                  ? 'bg-white border-black/10'
+                  : 'bg-muted'
+              )}
+            >
+              {message.content}
+            </div>
           ))}
         </div>
       </div>

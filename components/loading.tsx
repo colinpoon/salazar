@@ -16,11 +16,11 @@ export const Loading = ({ label }: Loadingprop) => {
     //     <Spline scene="https://prod.spline.design/WxlTWgxyxb5W8xai/scene.splinecode" />
     //   </div>
     // </div>
-    <div className="h-full flex flex-col gap-y-4 items-center justify-center">
+    <div className="h-full flex flex-col gap-y-4 items-start justify-center p-3 md:px-6">
       <div className="w-10 h-10 relative animate-spin">
-        <Image alt="logo" fill src={'/lg-logo-1.png'} />
+        <Image alt="logo" fill src={'/Subtract.png'} />
       </div>
-      <p className="text-sm">Thinking...</p>
+      <p className="text-sm text-muted-foreground">Thinking...</p>
     </div>
   );
 };
