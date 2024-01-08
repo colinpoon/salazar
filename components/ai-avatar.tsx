@@ -8,7 +8,7 @@ import {
 export const AiAvatar = () => {
   return (
     <Avatar className="w-8 h-8">
-      <AvatarImage className="p-1" src="/lg-logo-1.png" />
+      <AvatarImage className="p-1" src="/lg-logo-w.png" />
     </Avatar>
   );
 };

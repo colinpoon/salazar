@@ -5,9 +5,13 @@ import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import Spline from '@splinetool/react-spline';
+import { ChatCompletionRequestMessage } from 'openai';
 
 import { Heading } from '@/components/heading';
 import { Empty } from '@/components/empty';
+import { Loading } from '@/components/loading';
+import { UserAvatar } from '@/components/user-avatar';
+import { AiAvatar } from '@/components/ai-avatar';
 
 import { useForm } from 'react-hook-form';
 import { MessageSquare } from 'lucide-react';
@@ -15,15 +19,13 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import { formSchema } from './constants';
+import { cn } from '@/lib/utils';
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
 } from '@/components/ui/form';
-import { cn } from '@/lib/utils';
-import { ChatCompletionRequestMessage } from 'openai';
-import { Loading } from '@/components/loading';
 
 export default function ConversationPage() {
   const router = useRouter();
@@ -131,24 +133,29 @@ export default function ConversationPage() {
           </div>
         )}
       </div>
-      <div className="px-4 lg:px-8 mt-4 w-full">
+      <div className="px-4 lg:px-8 w-full">
         {messages.length === 0 && !isLoading && (
           <Empty label="No Conversation" />
         )}
         {/* <div key={messages.content} className={cn('p-8')}></div> */}
 
-        <div className="flex flex-col gap-y-4 p-3 md:px-6">
+        <div className="flex flex-col gap-y-4 ">
           {messages.map((message) => (
             <div
               key={message.content}
               className={cn(
-                'p-8 w-full items-start gap-x-8 rounded-lg',
+                'flex flex-row p-8 w-fit items-center gap-x-8 rounded-lg',
                 message.role === 'user'
                   ? 'bg-white border-black/10'
-                  : 'bg-muted'
+                  : 'bg-brand-muted-2 text-white '
               )}
             >
-              {message.content}
+              {message.role === 'user' ? (
+                <UserAvatar />
+              ) : (
+                <AiAvatar />
+              )}
+              <p className="text-sm">{message.content}</p>
             </div>
           ))}
         </div>

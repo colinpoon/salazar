@@ -7,12 +7,15 @@ interface Emptyprops {
 export const Empty = ({ label }: Emptyprops) => {
   return (
     <div className="h-full flex flex-col items-start justify-center">
-      <div className="h-75 w-75">
-        <p className="text-muted-foreground text-sm p-3 md:px-6">
-          {/* <p className="text-muted-foreground test-sm absolute top-[75%] left-[48%]"> */}
-          {label}
-        </p>
-        <Spline scene="https://prod.spline.design/WxlTWgxyxb5W8xai/scene.splinecode" />
+      <p className="text-muted-foreground text-sm p-3 md:px-6">
+        {label}
+      </p>
+      {/* <div className="h-1/2 w-1/2"> */}
+      <div className="w-full">
+        <Spline
+          className=""
+          scene="https://prod.spline.design/WxlTWgxyxb5W8xai/scene.splinecode"
+        />
       </div>
     </div>
   );
