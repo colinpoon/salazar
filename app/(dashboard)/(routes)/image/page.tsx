@@ -118,7 +118,7 @@ export default function ImagePage() {
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="rounded-lg border w-full p-3 md:px-6 focus-within:shadow-sm grid
-          grid-cols-12 gap-2 mb-8"
+          grid-cols-14 gap-2 mb-8"
           >
             <FormField
               name="prompt"
@@ -136,6 +136,7 @@ export default function ImagePage() {
                 </FormItem>
               )}
             />
+            {/* -------- */}
             <FormField
               control={form.control}
               name="amount"
@@ -173,6 +174,7 @@ export default function ImagePage() {
             >
               Generate
             </Button>
+            {/* -------- */}
           </form>
         </Form>
       </div>
