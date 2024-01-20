@@ -6,7 +6,7 @@ interface Emptyprops {
 
 export const Empty = ({ label }: Emptyprops) => {
   return (
-    <div className="h-full flex flex-col items-start justify-center">
+    <div className="h-full flex flex-col items-center justify-center">
       <p className="text-muted-foreground text-sm p-3 md:px-6">
         {label}
       </p>

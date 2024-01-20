@@ -123,7 +123,7 @@ export default function ImagePage() {
             <FormField
               name="prompt"
               render={({ field }) => (
-                <FormItem className="col-span-12 lg:col-span-10">
+                <FormItem className="col-span-full lg:col-span-10">
                   <FormControl className="m-0 p-0">
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-tranparent"
@@ -141,7 +141,7 @@ export default function ImagePage() {
               control={form.control}
               name="amount"
               render={({ field }) => (
-                <FormItem className="col-span-12 lg:col-span-2">
+                <FormItem className="col-span-full lg:col-span-2">
                   <Select
                     disabled={isLoading}
                     onValueChange={field.onChange}
@@ -169,7 +169,7 @@ export default function ImagePage() {
             />
 
             <Button
-              className="col-span-12 lg:col-span-2 w-full"
+              className="col-span-full lg:col-span-2 w-full"
               disabled={isLoading}
             >
               Generate

@@ -99,12 +99,12 @@ export default function ConversationPage() {
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="rounded-lg border w-full p-3 md:px-6 focus-within:shadow-sm grid
-          grid-cols-12 gap-2 mb-8"
+          grid-cols-14 gap-2 mb-8"
           >
             <FormField
               name="prompt"
               render={({ field }) => (
-                <FormItem className="col-span-12 lg:col-span-10">
+                <FormItem className="col-span-full lg:col-span-10">
                   <FormControl className="m-0 p-0">
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-tranparent"
@@ -118,7 +118,7 @@ export default function ConversationPage() {
               )}
             />
             <Button
-              className="col-span-12 lg:col-span-2 w-full"
+              className="col-span-full lg:col-span-2 w-full"
               disabled={isLoading}
             >
               Generate
