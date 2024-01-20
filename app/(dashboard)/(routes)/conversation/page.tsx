@@ -89,7 +89,7 @@ export default function ConversationPage() {
         title="Conversation"
         desc="Leverage AI to create content or answer questions"
         icon={MessageSquare}
-        iconColor="text-brand-primary"
+        iconColor="text-neutral-1"
         bgColor="bg-brand-muted-2"
       />
       {/* <div className="space-y-4 w-full"></div>

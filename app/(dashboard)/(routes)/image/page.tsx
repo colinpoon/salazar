@@ -108,7 +108,7 @@ export default function ImagePage() {
         title="Image Generation"
         desc="Leverage AI to create unique images"
         icon={ImageIcon}
-        iconColor="text-brand-primary"
+        iconColor="text-neutral-1"
         bgColor="bg-brand-muted-2"
       />
       {/* <div className="space-y-4 w-full"></div>

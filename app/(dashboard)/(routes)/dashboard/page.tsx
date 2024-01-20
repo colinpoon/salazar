@@ -54,35 +54,35 @@ const tools = [
   {
     label: 'Conversation',
     icon: MessageSquare,
-    color: 'text-brand-secondary',
+    color: 'text-neutral-1',
     bgColor: 'bg-brand-muted-2',
     href: '/conversation',
   },
   {
     label: 'Image Generation',
     icon: ImageIcon,
-    color: 'text-brand-muted-2',
-    bgColor: 'bg-brand-secondary',
+    color: 'text-neutral-1',
+    bgColor: 'bg-brand-muted-2',
     href: '/image',
   },
   {
     label: 'Video Generation',
     icon: VideoIcon,
-    color: 'text-brand-secondary',
+    color: 'text-neutral-1',
     bgColor: 'bg-brand-muted-2',
     href: '/video',
   },
   {
     label: 'Music Generation',
     icon: Music,
-    color: 'text-brand-secondary',
+    color: 'text-neutral-1',
     bgColor: 'bg-brand-muted-2',
     href: '/music',
   },
   {
     label: 'Code Generation',
     icon: Code,
-    color: 'text-brand-secondary',
+    color: 'text-neutral-1',
     bgColor: 'bg-brand-muted-2',
     href: '/code',
   },
@@ -90,7 +90,7 @@ const tools = [
 export default function DashboardPage() {
   const router = useRouter();
   return (
-    <div className="flex flex-col items-center px-4 py-4 md:px-[32px] md:py-[32px] h-full">
+    <div className="flex flex-col items-center px-4 py-4 md:px-[32px] md:py-[32px] h-full text-brand-muted-2">
       <div className="flex flex-col gap-3 items-center mb-[64px]">
         <h2 className="text-2xl md:text-4xl text-black-500 text-center font-bold">
           Build with AI
@@ -112,9 +112,11 @@ export default function DashboardPage() {
               >
                 <tool.icon className={cn('w-8 h-8', tool.color)} />
               </div>
-              <div className="font-semibold">{tool.label}</div>
+              <div className="font-semibold text-brand-muted-2">
+                {tool.label}
+              </div>
             </div>
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-5 h-5 text-brand-muted-2" />
           </Card>
         ))}
       </div>
