@@ -4,6 +4,8 @@ import axios from 'axios';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
+import Image from 'next/image';
+
 import Spline from '@splinetool/react-spline';
 import {} from 'openai';
 
@@ -17,7 +19,7 @@ import {
 } from './constants';
 
 import { useForm } from 'react-hook-form';
-import { ImageIcon } from 'lucide-react';
+import { DownloadIcon, ImageIcon } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import {
   Select,
@@ -27,7 +29,10 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
+import { Card, CardFooter } from '@/components/ui/card';
+
 import { useRouter } from 'next/navigation';
+
 import { cn } from '@/lib/utils';
 import {
   Form,
@@ -83,8 +88,8 @@ export default function ImagePage() {
     console.log(values);
     try {
       setImages([]);
-
-      const response = await axios.post('/api/image', values);
+      // console.log(values);
+      const response = await axios.post('/api/images', values);
 
       const urls = response.data.map(
         (image: { url: string }) => image.url
@@ -103,7 +108,7 @@ export default function ImagePage() {
   };
 
   return (
-    <div className="flex flex-col items-center px-4 py-4 md:px-[32px] md:py-[32px] h-full">
+    <div className="flex flex-col items-center px-4 py-4 md:px-[32px] md:pb-[32px] h-full">
       <Heading
         title="Image Generation"
         desc="Leverage AI to create unique images"
@@ -118,7 +123,7 @@ export default function ImagePage() {
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="rounded-lg border w-full p-3 md:px-6 focus-within:shadow-sm grid
-          grid-cols-14 gap-2 mb-8"
+          grid-cols-16 gap-2 mb-8"
           >
             <FormField
               name="prompt"
@@ -128,7 +133,7 @@ export default function ImagePage() {
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-tranparent"
                       disabled={isLoading}
-                      placeholder="A picture of a Spider-Man in space"
+                      placeholder="Enter prompt..."
                       autoComplete="off"
                       {...field}
                     ></Input>
@@ -167,6 +172,36 @@ export default function ImagePage() {
                 </FormItem>
               )}
             />
+            <FormField
+              control={form.control}
+              name="resolution"
+              render={({ field }) => (
+                <FormItem className="col-span-full lg:col-span-2">
+                  <Select
+                    disabled={isLoading}
+                    onValueChange={field.onChange}
+                    value={field.value}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue defaultValue={field.value} />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {resolutionOptions.map((option) => (
+                        <SelectItem
+                          key={option.value}
+                          value={option.value}
+                        >
+                          {option.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </FormItem>
+              )}
+            />
 
             <Button
               className="col-span-full lg:col-span-2 w-full"
@@ -191,7 +226,24 @@ export default function ImagePage() {
         )}
         {/* <div key={messages.content} className={cn('p-8')}></div> */}
 
-        <div>Images will be here</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 xlg:grid-cols-4 gap-4 mt-8 ">
+          {images.map((src) => (
+            <Card key={src} className="rounded-lg overflow-hidden">
+              <div className="relative aspect-square">
+                <Image alt="Image" fill src={src} />
+              </div>
+              <CardFooter className="p-2">
+                <Button
+                  onClick={() => window.open(src)}
+                  className="w-full"
+                >
+                  <DownloadIcon className="h-4 w-4 mr-2" />
+                  Download
+                </Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
   );

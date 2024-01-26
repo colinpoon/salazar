@@ -13,6 +13,10 @@ export const formSchema = z.object({
 // create an array of options for users
 
 export const amountOptions = [
+  // {
+  //   value: 'Amount',
+  //   label: 'Amount',
+  // },
   {
     value: '1',
     label: '1 Image',
@@ -22,30 +26,22 @@ export const amountOptions = [
     label: '2 Image',
   },
   {
-    value: '3',
-    label: '3 Image',
-  },
-  {
     value: '4',
     label: '4 Image',
-  },
-  {
-    value: '5',
-    label: '5 Image',
   },
 ];
 
 export const resolutionOptions = [
   {
     value: '256x256',
-    label: '256x256',
+    label: '256 x 256',
   },
   {
     value: '512x512',
-    label: '512x512',
+    label: '512 x 512',
   },
   {
     value: '1024x1024',
-    label: '1024x1024',
+    label: '1024 x 1024',
   },
 ];
