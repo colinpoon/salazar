@@ -24,7 +24,9 @@ import { Input } from '@/components/ui/input';
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
@@ -158,15 +160,19 @@ export default function ImagePage() {
                         <SelectValue defaultValue={field.value} />
                       </SelectTrigger>
                     </FormControl>
+
                     <SelectContent>
-                      {amountOptions.map((option) => (
-                        <SelectItem
-                          key={option.value}
-                          value={option.value}
-                        >
-                          {option.label}
-                        </SelectItem>
-                      ))}
+                      <SelectGroup>
+                        <SelectLabel>Amount</SelectLabel>
+                        {amountOptions.map((option) => (
+                          <SelectItem
+                            key={option.value}
+                            value={option.value}
+                          >
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectGroup>
                     </SelectContent>
                   </Select>
                 </FormItem>
@@ -189,14 +195,17 @@ export default function ImagePage() {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      {resolutionOptions.map((option) => (
-                        <SelectItem
-                          key={option.value}
-                          value={option.value}
-                        >
-                          {option.label}
-                        </SelectItem>
-                      ))}
+                      <SelectGroup>
+                        <SelectLabel>Resolution</SelectLabel>
+                        {resolutionOptions.map((option) => (
+                          <SelectItem
+                            key={option.value}
+                            value={option.value}
+                          >
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectGroup>
                     </SelectContent>
                   </Select>
                 </FormItem>
@@ -230,7 +239,12 @@ export default function ImagePage() {
           {images.map((src) => (
             <Card key={src} className="rounded-lg overflow-hidden">
               <div className="relative aspect-square">
-                <Image alt="Image" fill src={src} />
+                <Image
+                  alt="Image"
+                  fill
+                  src={src}
+                  className="object-contain"
+                />
               </div>
               <CardFooter className="p-2">
                 <Button
