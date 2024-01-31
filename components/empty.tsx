@@ -11,9 +11,9 @@ export const Empty = ({ label }: Emptyprops) => {
         {label}
       </p>
       {/* <div className="h-1/2 w-1/2"> */}
-      <div className="w-full">
+      <div className="w-full pr-[5%] overflow-hidden">
         <Spline
-          className=""
+          className="translate-y-[-15%]"
           scene="https://prod.spline.design/WxlTWgxyxb5W8xai/scene.splinecode"
         />
       </div>
