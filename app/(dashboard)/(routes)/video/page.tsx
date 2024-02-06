@@ -4,7 +4,6 @@ import axios from 'axios';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
-import { ChatCompletionRequestMessage } from 'openai';
 
 import { Heading } from '@/components/heading';
 import { Empty } from '@/components/empty';
@@ -13,7 +12,7 @@ import { UserAvatar } from '@/components/user-avatar';
 import { AiAvatar } from '@/components/ai-avatar';
 
 import { useForm } from 'react-hook-form';
-import { Music, Music2, Music3, VideoIcon } from 'lucide-react';
+import { VideoIcon } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
@@ -59,7 +58,7 @@ export default function VideoPage() {
 
       const response = await axios.post('/api/video', values);
 
-      setVideo(response.data.video);
+      setVideo(response.data[0]);
       form.reset();
     } catch (error: any) {
       //is premium model?
@@ -121,9 +120,12 @@ export default function VideoPage() {
       <div className="px-4 lg:px-8 w-full">
         {!video && !isLoading && <Empty label="No Music Generated" />}
         {video && (
-          <audio controls className="w-full mt-8">
+          <video
+            controls
+            className="w-full aspect-video mt-8 rounded-lg border bg-black"
+          >
             <source src={video} />
-          </audio>
+          </video>
         )}
       </div>
     </div>
