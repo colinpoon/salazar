@@ -118,7 +118,7 @@ export default function VideoPage() {
         )}
       </div>
       <div className="px-4 lg:px-8 w-full">
-        {!video && !isLoading && <Empty label="No Music Generated" />}
+        {!video && !isLoading && <Empty label="No Video Generated" />}
         {video && (
           <video
             controls

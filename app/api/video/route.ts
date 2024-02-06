@@ -43,7 +43,9 @@ export async function POST(req: Request) {
         },
       }
     );
+    //MORE MODELS: https://replicate.com/collections/text-to-video
 
+    console.log(prompt);
     // if (!isPro) {
     //   await incrementApiLimit();
     // }
