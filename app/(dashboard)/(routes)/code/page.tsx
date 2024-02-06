@@ -161,14 +161,18 @@ export default function CodePage() {
               <ReactMarkdown
                 components={{
                   pre: ({ node, ...children }) => (
-                    <div className="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
+                    <div className="overflow-auto w-full my-2 bg-black/50 p-2 rounded-lg">
                       <pre {...children} />
                     </div>
                   ),
                   code: ({ node, ...children }) => (
-                    <code className="bg-black/10 p-1 rounded-lg" />
+                    <code
+                      className="bg-black/50 p-1 rounded-lg"
+                      {...children}
+                    />
                   ),
                 }}
+                className="text-sm overflow-hidden leading-7 "
               >
                 {message.content || ''}
               </ReactMarkdown>
