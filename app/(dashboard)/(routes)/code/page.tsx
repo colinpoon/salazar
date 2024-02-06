@@ -4,6 +4,8 @@ import axios from 'axios';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+
 import Spline from '@splinetool/react-spline';
 import { ChatCompletionRequestMessage } from 'openai';
 
@@ -155,7 +157,9 @@ export default function CodePage() {
               ) : (
                 <AiAvatar />
               )}
-              <p className="text-sm">{message.content}</p>
+              <ReactMarkdown className="text-sm">
+                {message.content || ''}
+              </ReactMarkdown>
             </div>
           ))}
         </div>
