@@ -23,3 +23,20 @@ export const apiUseLimit = async () => {
     });
   }
 };
+
+// check if user has reached the limit of free  API calls for today
+export const isOverFreeLimit = async () => {
+  const { userId } = auth();
+  if (!userId) {
+    return false;
+  }
+  // fetch user api limit
+  const userApiLimit = await prismadb.userApiLimit.findUnique({
+    where: { userId: userId },
+  });
+  if (!userApiLimit || userApiLimit.count < MAX_FREE_COUNT) {
+    return true;
+  } else {
+    return false;
+  }
+};
