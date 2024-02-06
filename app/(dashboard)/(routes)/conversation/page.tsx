@@ -128,7 +128,7 @@ export default function ConversationPage() {
       </div>
       <div className="space-y-4 mt4 w-full">
         {isLoading && (
-          <div className="px-8 rounded-lg w-full flex items-start justify-start">
+          <div className="px-8 rounded-lg w-full items-center justify-center">
             <Loading label="Loading..." />
           </div>
         )}
@@ -144,7 +144,7 @@ export default function ConversationPage() {
             <div
               key={message.content}
               className={cn(
-                'flex flex-row p-8 w-fit items-center gap-x-8 rounded-lg',
+                'flex flex-row p-8 w-fit items-start gap-x-8 rounded-lg',
                 message.role === 'user'
                   ? 'bg-white border-black/10'
                   : 'bg-brand-muted-2 text-white '

@@ -130,7 +130,7 @@ export default function CodePage() {
       </div>
       <div className="space-y-4 mt4 w-full">
         {isLoading && (
-          <div className="px-8 rounded-lg w-full flex items-start justify-start">
+          <div className="px-8 rounded-lg w-full flex items-center justify-center">
             <Loading label="Loading..." />
           </div>
         )}
@@ -146,7 +146,7 @@ export default function CodePage() {
             <div
               key={message.content}
               className={cn(
-                'flex flex-row p-8 w-fit items-center gap-x-8 rounded-lg',
+                'flex flex-row p-8 w-fit items-start gap-x-8 rounded-lg',
                 message.role === 'user'
                   ? 'bg-white border-black/10'
                   : 'bg-brand-muted-2 text-white '
@@ -157,7 +157,19 @@ export default function CodePage() {
               ) : (
                 <AiAvatar />
               )}
-              <ReactMarkdown className="text-sm">
+              {/* <ReactMarkdown className="text-sm mt-[6px]"> */}
+              <ReactMarkdown
+                components={{
+                  pre: ({ node, ...children }) => (
+                    <div className="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
+                      <pre {...children} />
+                    </div>
+                  ),
+                  code: ({ node, ...children }) => (
+                    <code className="bg-black/10 p-1 rounded-lg" />
+                  ),
+                }}
+              >
                 {message.content || ''}
               </ReactMarkdown>
             </div>

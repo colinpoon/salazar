@@ -16,7 +16,7 @@ export const Loading = ({ label }: Loadingprop) => {
     //     <Spline scene="https://prod.spline.design/WxlTWgxyxb5W8xai/scene.splinecode" />
     //   </div>
     // </div>
-    <div className="h-full flex flex-col gap-y-4 items-center justify-center p-3 md:px-6">
+    <div className="h-full flex flex-col gap-y-4 items-center justify-center p-3 md:px-6 mb-8">
       <div className="w-10 h-10 relative animate-spin">
         <Image
           alt="logo"
