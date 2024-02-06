@@ -73,7 +73,7 @@ export default function ImagePage() {
   const formSchema = z.object({
     prompt: z.string().default(''),
     amount: z.string().default('1'),
-    resolution: z.string().default('1'),
+    resolution: z.string().default('512x512'),
   });
 
   type FormValues = z.infer<typeof formSchema>;
