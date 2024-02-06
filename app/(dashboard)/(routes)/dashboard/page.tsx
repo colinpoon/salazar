@@ -18,6 +18,7 @@ import {
   Settings,
   VideoIcon,
   Code,
+  Music3,
 } from 'lucide-react';
 
 // {
