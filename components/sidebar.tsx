@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Montserrat } from 'next/font/google';
+import logo from 'public/lg-logo-muted-1.svg';
 
 import { cn } from '@/lib/utils';
 import {
@@ -121,13 +122,13 @@ const Sidebar = () => {
 
       {/* sidebar footer */}
 
-      <div className="flex flex-row items-center justify-between mb-4 px-[32px]">
+      <div className="flex flex-row items-center justify-between mb-4 px-[32px] static">
         <Link href={'/dashboard'} className="flex items-center">
           <div className="relative w-10 h-8 ">
             <Image
               fill
               alt="Salazar Logo"
-              src={'/lg-logo-muted-1.svg'}
+              src={logo}
               className="cursor-pointer hover:text-black transition"
             />
           </div>

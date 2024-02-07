@@ -4,7 +4,6 @@ import axios from 'axios';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
-import Spline from '@splinetool/react-spline';
 import { ChatCompletionRequestMessage } from 'openai';
 
 import { Heading } from '@/components/heading';
@@ -155,7 +154,7 @@ export default function ConversationPage() {
               ) : (
                 <AiAvatar />
               )}
-              <p className="text-sm">{message.content}</p>
+              <p className="text-sm mt-[6px]">{message.content}</p>
             </div>
           ))}
         </div>

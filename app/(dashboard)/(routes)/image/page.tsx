@@ -4,10 +4,8 @@ import axios from 'axios';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
-import Image from 'next/image';
-
-import Spline from '@splinetool/react-spline';
 import {} from 'openai';
+import Image from 'next/image';
 
 import { Heading } from '@/components/heading';
 import { Empty } from '@/components/empty';
@@ -235,7 +233,7 @@ export default function ImagePage() {
         )}
         {/* <div key={messages.content} className={cn('p-8')}></div> */}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xlg:grid-cols-4 gap-4 mt-8 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 xlg:grid-cols-4 gap-4 mt-8 static">
           {images.map((src) => (
             <Card key={src} className="rounded-lg overflow-hidden">
               <div className="relative aspect-square">

@@ -3,7 +3,7 @@ import { auth } from '@clerk/nextjs';
 import prismadb from '@/lib/prismadb';
 import { MAX_FREE_COUNT } from '@/constants';
 
-export const apiUseLimit = async () => {
+export const checkApiLimit = async () => {
   const { userId } = auth();
   if (!userId) {
     return;
@@ -25,7 +25,7 @@ export const apiUseLimit = async () => {
 };
 
 // check if user has reached the limit of free  API calls for today
-export const isOverFreeLimit = async () => {
+export const incrementApiLimit = async () => {
   const { userId } = auth();
   if (!userId) {
     return false;
