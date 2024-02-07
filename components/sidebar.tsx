@@ -1,10 +1,9 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Montserrat } from 'next/font/google';
 import logo from 'public/lg-logo-muted-1.svg';
-
-import { cn } from '@/lib/utils';
 import {
   Code,
   ImageIcon,
@@ -14,7 +13,9 @@ import {
   Settings,
   VideoIcon,
 } from 'lucide-react';
-import { usePathname } from 'next/navigation';
+
+import { cn } from '@/lib/utils';
+import { FreeCounter } from '@/components/free-counter';
 
 const montserrate = Montserrat({
   weight: '600',
