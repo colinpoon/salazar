@@ -10,17 +10,24 @@ import { usePro } from '@/hooks/use-pro';
 
 interface FreeCounterProps {
   apiLimitCount: number;
+  isPro: boolean;
 }
 
 export const FreeCounter = ({
   apiLimitCount = 0,
+  isPro = false,
 }: FreeCounterProps) => {
   const proModel = usePro();
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
-  if (!mounted) return null;
+  if (!mounted) {
+    return null;
+  }
+  if (isPro) {
+    return null;
+  }
   return (
     <div className="px-3 pb-3">
       <Card className="bg-brand-muted-1 border-0">
