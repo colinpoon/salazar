@@ -78,7 +78,6 @@ export default function CodePage() {
       ]);
       form.reset();
     } catch (error: any) {
-      //is premium model?
       console.log(error);
     } finally {
       router.refresh();

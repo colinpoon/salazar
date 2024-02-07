@@ -21,12 +21,10 @@ export const FreeCounter = ({
   if (!mounted) return null;
   return (
     <div className="px-3">
-      <Card className="bg-brand-muted-1	 rounded-full border-3 border-black">
+      <Card className="bg-brand-muted-1 border-0">
         <CardContent className="py-6">
-          <div className="text-center text-sm text-white">
-            <p>
-              {apiLimitCount} / {MAX_FREE_COUNT} Free Attempts
-            </p>
+          <div className="text-center text-sm text-white mb-4 space-y-2">
+            <p>{MAX_FREE_COUNT - apiLimitCount} Free Attempts</p>
             <Progress
               className="h-3"
               value={(apiLimitCount / MAX_FREE_COUNT) * 100}

@@ -10,7 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-brand-muted-2 text-primary-foreground hover:bg-black',
+          'bg-brand-muted-1 text-primary-foreground hover:bg-brand-muted-2',
         destructive:
           // danger: (can change to any var)
           'bg-destructive text-destructive-foreground hover:bg-destructive/90',
@@ -20,7 +20,7 @@ const buttonVariants = cva(
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
-        pro: 'bg-gradient-to-r from-[#9BFF5D]  via-[#d9d9d9] to-[#E7DAD9] text-brand-muted-1 border-0',
+        pro: 'bg-gradient-to-r from-[#9BFF5D]  via-[#d9d9d9] to-[#E7DAD9] text-brand-muted-1 border-0 hover:bg-gradient-to-l from-[#9BFF5D]  via-[#d9d9d9] to-[#E7DAD9]',
       },
       size: {
         default: 'h-10 px-4 py-2',

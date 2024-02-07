@@ -78,6 +78,7 @@ export default function ConversationPage() {
       //is premium model?
       console.log(error);
     } finally {
+      //data refresh / hydrate
       router.refresh();
     }
   };

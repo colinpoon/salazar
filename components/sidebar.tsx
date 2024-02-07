@@ -127,7 +127,7 @@ const Sidebar = ({ apiLimitCount = 0 }: SidebarProps) => {
 
       {/* sidebar footer */}
 
-      <div className="flex flex-row items-center justify-between mb-4 px-[32px] static">
+      {/* <div className="flex flex-row items-center justify-between mb-4 px-[32px] static">
         <Link href={'/dashboard'} className="flex items-center">
           <div className="relative w-10 h-8 ">
             <Image
@@ -137,8 +137,8 @@ const Sidebar = ({ apiLimitCount = 0 }: SidebarProps) => {
               className="cursor-pointer hover:text-black transition"
             />
           </div>
-        </Link>
-        {/* <div className="flex items-center justify-center">
+        </Link> */}
+      {/* <div className="flex items-center justify-center">
           {userSettings.map((route) => (
             <Link
               href={route.href}
@@ -162,9 +162,9 @@ const Sidebar = ({ apiLimitCount = 0 }: SidebarProps) => {
             </Link>
           ))}
         </div> */}
-        <FreeCounter apiLimitCount={apiLimitCount} />
-      </div>
+      <FreeCounter apiLimitCount={apiLimitCount} />
     </div>
+    // </div>
   );
 };
 
