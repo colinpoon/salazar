@@ -1,7 +1,7 @@
 import { auth } from '@clerk/nextjs';
 import { NextResponse } from 'next/server';
 import { Configuration, OpenAIApi } from 'openai';
-
+import { incrementApiLimit, checkApiLimit } from '@/lib/api-limit';
 // import { checkSubscription } from '@/lib/subscription';
 // import { incrementApiLimit, checkApiLimit } from '@/lib/api-limit';
 
@@ -42,7 +42,15 @@ export async function POST(req: Request) {
         status: 400,
       });
     }
-
+    const freeTrial = await checkApiLimit();
+    if (!freeTrial) {
+      return new NextResponse(
+        'Rate limit exceeded. Please wait and retry.',
+        {
+          status: 403,
+        }
+      );
+    }
     // const freeTrial = await checkApiLimit();
     // const isPro = await checkSubscription();
 
@@ -60,6 +68,7 @@ export async function POST(req: Request) {
       size: resolution,
     });
 
+    await incrementApiLimit();
     // if (!isPro) {
     //   await incrementApiLimit();
     // }

@@ -5,9 +5,7 @@ import {
   Configuration,
   OpenAIApi,
 } from 'openai';
-
-// import { checkSubscription } from '@/lib/subscription';
-// import { incrementApiLimit, checkApiLimit } from '@/lib/api-limit';
+import { incrementApiLimit, checkApiLimit } from '@/lib/api-limit';
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -43,6 +41,15 @@ export async function POST(req: Request) {
       });
     }
 
+    const freeTrial = await checkApiLimit();
+    if (!freeTrial) {
+      return new NextResponse(
+        'Rate limit exceeded. Please wait and retry.',
+        {
+          status: 403,
+        }
+      );
+    }
     // const freeTrial = await checkApiLimit();
     // const isPro = await checkSubscription();
 
@@ -58,6 +65,7 @@ export async function POST(req: Request) {
       messages: [queryMessage, ...messages],
     });
 
+    await incrementApiLimit();
     // if (!isPro) {
     //   await incrementApiLimit();
     // }

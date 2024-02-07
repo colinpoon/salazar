@@ -33,16 +33,7 @@ export async function POST(req: Request) {
     }
 
     const freeTrial = await checkApiLimit();
-    // if (!freeTrial) {
-    //   return new NextResponse(
-    //     'Rate limit exceeded. Please wait and retry.',
-    //     {
-    //       status: 403,
-    //     }
-    //   );
-    // };
-
-    if (freeTrial === false && !process.env.DEBUG) {
+    if (!freeTrial) {
       return new NextResponse(
         'Rate limit exceeded. Please wait and retry.',
         {
@@ -50,6 +41,15 @@ export async function POST(req: Request) {
         }
       );
     }
+
+    // if (freeTrial === false && !process.env.DEBUG) {
+    //   return new NextResponse(
+    //     'Rate limit exceeded. Please wait and retry.',
+    //     {
+    //       status: 403,
+    //     }
+    //   );
+    // }
 
     const response = await openai.createChatCompletion({
       model: 'gpt-3.5-turbo',

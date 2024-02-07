@@ -1,7 +1,8 @@
+import { checkApiLimit, incrementApiLimit } from '@/lib/api-limit';
 import { auth } from '@clerk/nextjs';
 import { NextResponse } from 'next/server';
 import Replicate from 'replicate';
-
+import { incrementApiLimit, checkApiLimit } from '@/lib/api-limit';
 // import { checkSubscription } from '@/lib/subscription';
 // import { incrementApiLimit, checkApiLimit } from '@/lib/api-limit';
 
@@ -33,7 +34,15 @@ export async function POST(req: Request) {
     //     { status: 403 }
     //   );
     // }
-
+    const freeTrial = await checkApiLimit();
+    if (!freeTrial) {
+      return new NextResponse(
+        'Rate limit exceeded. Please wait and retry.',
+        {
+          status: 403,
+        }
+      );
+    }
     const response = await replicate.run(
       'riffusion/riffusion:8cf61ea6c56afd61d8f5b9ffd14d7c216c0a93844ce2d82ac1c9ecc9c7f24e05',
       {
@@ -47,6 +56,7 @@ export async function POST(req: Request) {
     // if (!isPro) {
     //   await incrementApiLimit();
     // }
+    await incrementApiLimit();
 
     return NextResponse.json(response);
   } catch (error) {

@@ -1,7 +1,8 @@
+import { checkApiLimit, incrementApiLimit } from '@/lib/api-limit';
 import { auth } from '@clerk/nextjs';
 import { NextResponse } from 'next/server';
 import Replicate from 'replicate';
-
+import { incrementApiLimit, checkApiLimit } from '@/lib/api-limit';
 // import { checkSubscription } from '@/lib/subscription';
 // import { incrementApiLimit, checkApiLimit } from '@/lib/api-limit';
 
@@ -33,7 +34,15 @@ export async function POST(req: Request) {
     //     { status: 403 }
     //   );
     // }
-
+    const freeTrial = await checkApiLimit();
+    if (!freeTrial) {
+      return new NextResponse(
+        'Rate limit exceeded. Please wait and retry.',
+        {
+          status: 403,
+        }
+      );
+    }
     // ZEROSCOPE
     const response = await replicate.run(
       'anotherjesse/zeroscope-v2-xl:9f747673945c62801b13b84701c783929c0ee784e4748ec062204894dda1a351',
@@ -46,9 +55,7 @@ export async function POST(req: Request) {
     //MORE MODELS: https://replicate.com/collections/text-to-video
 
     console.log(prompt);
-    // if (!isPro) {
-    //   await incrementApiLimit();
-    // }
+    await incrementApiLimit();
 
     return NextResponse.json(response);
   } catch (error) {
