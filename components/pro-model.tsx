@@ -126,6 +126,7 @@ export const ProModel = () => {
         </DialogHeader>
         <DialogFooter>
           <Button
+            disabled={loading}
             onClick={onSubscribe}
             size="lg"
             className="w-full border-0"
@@ -140,20 +141,5 @@ export const ProModel = () => {
 
     // ERROR <div> cannot appear as a descendant of <p>. @ either Card || Dialog || Button
     // maybe generated from UI Components
-
-    // <Dialog>
-    //   <DialogContent>
-    //     <DialogHeader>
-    //       <DialogTitle>Are you absolutely sure?</DialogTitle>
-    //       <DialogDescription>
-    //         This action cannot be undone. Are you sure you want to
-    //         permanently delete this file from our servers?
-    //       </DialogDescription>
-    //     </DialogHeader>
-    //     <DialogFooter>
-    //       <Button type="submit">Confirm</Button>
-    //     </DialogFooter>
-    //   </DialogContent>
-    // </Dialog>
   );
 };
