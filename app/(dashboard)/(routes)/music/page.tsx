@@ -4,7 +4,7 @@ import axios from 'axios';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
-import { ChatCompletionRequestMessage } from 'openai';
+import toast from 'react-hot-toast';
 
 import { Heading } from '@/components/heading';
 import { Empty } from '@/components/empty';
@@ -66,6 +66,8 @@ export default function MusicPage() {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModel.onOpen();
+      } else {
+        toast.error('Oops! Something went wrong');
       }
       console.log(error);
     } finally {

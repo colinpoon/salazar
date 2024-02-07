@@ -5,6 +5,7 @@ import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 
+import toast from 'react-hot-toast';
 import { Heading } from '@/components/heading';
 import { Empty } from '@/components/empty';
 import { Loading } from '@/components/loading';
@@ -65,6 +66,8 @@ export default function VideoPage() {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModel.onOpen();
+      } else {
+        toast.error('Oops! Something went wrong');
       }
       console.log(error);
     } finally {

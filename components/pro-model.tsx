@@ -1,6 +1,8 @@
 'use client';
 import axios from 'axios';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
+
 import {
   Dialog,
   DialogContent,
@@ -14,7 +16,6 @@ import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-
 import {
   ArrowRight,
   ImageIcon,
@@ -78,7 +79,7 @@ export const ProModel = () => {
       const res = await axios.get('/api/stripe');
       window.location.href = (await res).data.url;
     } catch (error) {
-      console.log(error, 'STRIPE_CLIENT_ERROR');
+      toast.error('Oops! Something went wrong');
     } finally {
       setLoading(false);
     }

@@ -6,12 +6,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { ChatCompletionRequestMessage } from 'openai';
 
+import toast from 'react-hot-toast';
+
 import { Heading } from '@/components/heading';
 import { Empty } from '@/components/empty';
 import { Loading } from '@/components/loading';
 import { UserAvatar } from '@/components/user-avatar';
 import { AiAvatar } from '@/components/ai-avatar';
-
 import { useForm } from 'react-hook-form';
 import { MessageSquare } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -25,6 +26,7 @@ import {
   FormField,
   FormItem,
 } from '@/components/ui/form';
+
 import { usePro } from '@/hooks/use-pro';
 
 export default function ConversationPage() {
@@ -60,6 +62,7 @@ export default function ConversationPage() {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     console.log(values);
     try {
+      // throw new Error('** This is a test **');
       const userMessage: ChatCompletionRequestMessage = {
         role: 'user',
         content: values.prompt,
@@ -79,6 +82,8 @@ export default function ConversationPage() {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModel.onOpen();
+      } else {
+        toast.error('Oops! Something went wrong');
       }
     } finally {
       //data refresh / hydrate

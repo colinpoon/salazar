@@ -5,6 +5,7 @@ import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import toast from 'react-hot-toast';
 
 import Spline from '@splinetool/react-spline';
 import { ChatCompletionRequestMessage } from 'openai';
@@ -82,6 +83,8 @@ export default function CodePage() {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModel.onOpen();
+      } else {
+        toast.error('Oops! Something went wrong');
       }
     } finally {
       router.refresh();
