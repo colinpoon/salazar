@@ -37,6 +37,7 @@ export const checkApiLimit = async () => {
 };
 export const getApiLimitCount = async () => {
   const { userId } = auth();
+  //brand new user
   if (!userId) {
     return 0;
   }
@@ -45,6 +46,7 @@ export const getApiLimitCount = async () => {
       userId,
     },
   });
+  //user hasn't used any free trials
   if (!userApiLimit) {
     return 0;
   }

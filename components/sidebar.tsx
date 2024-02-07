@@ -76,7 +76,11 @@ const userSettings = [
   },
 ];
 
-const Sidebar = () => {
+interface SidebarProps {
+  apiLimitCount: number;
+}
+
+const Sidebar = ({ apiLimitCount = 0 }: SidebarProps) => {
   const pathname = usePathname();
 
   return (
@@ -133,7 +137,7 @@ const Sidebar = () => {
             />
           </div>
         </Link>
-        <div className="flex items-center justify-center">
+        {/* <div className="flex items-center justify-center">
           {userSettings.map((route) => (
             <Link
               href={route.href}
@@ -156,7 +160,8 @@ const Sidebar = () => {
               </div>
             </Link>
           ))}
-        </div>
+        </div> */}
+        <FreeCounter apiLimitCount={apiLimitCount} />
       </div>
     </div>
   );
