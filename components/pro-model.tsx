@@ -122,6 +122,10 @@ export const ProModel = () => {
         </DialogFooter>
       </DialogContent>
     </Dialog>
+
+    // ERROR <div> cannot appear as a descendant of <p>. @ either Card || Dialog || Button
+    // maybe generated from UI Components
+
     // <Dialog>
     //   <DialogContent>
     //     <DialogHeader>
