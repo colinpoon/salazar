@@ -18,16 +18,17 @@ export const Heading = ({
 }: HeadingProps) => {
   return (
     <>
-      <div className="px-4 lg:px-8 flex item-center gap-x-3 mb-8">
+      <div className="px-4 lg:px-8 flex item-center gap-x-3 mb-8 ">
         <div className={cn('p-2 w-fit rounded-md', bgColor)}>
           <Icon className={cn('w-10 h-10', iconColor)} />
         </div>
       </div>
       <div className="flex flex-col justify-center gap-3 mb-8">
-        <h2 className="text-2xl md:text-4xl text-brand-muted-2 text-center font-bold">
+        <h2 className="text-2xl md:text-4xl text-brand-muted-1 text-center font-bold">
           {title}
         </h2>
-        <p className="text-muted-foreground font-light text-sm md:text-lg text-center">
+        <p className="text-muted-foreground font-light text-sm md:text-lg text-center ">
+          {/* border-b-4 border-b-brand-primary pb-3 */}
           {desc}
         </p>
       </div>

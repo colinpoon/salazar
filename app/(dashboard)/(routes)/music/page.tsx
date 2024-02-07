@@ -80,7 +80,7 @@ export default function MusicPage() {
         desc="Leverage AI to create your own music"
         icon={Music}
         iconColor="text-neutral-1"
-        bgColor="bg-brand-muted-2"
+        bgColor="bg-brand-muted-1"
       />
       {/* <div className="space-y-4 w-full"></div>
       <div className="flex flex-col gap-5 items-center"></div> */}

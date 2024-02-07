@@ -79,7 +79,7 @@ export default function VideoPage() {
         desc="Leverage AI to create your own video"
         icon={VideoIcon}
         iconColor="text-neutral-1"
-        bgColor="bg-brand-muted-2"
+        bgColor="bg-brand-muted-1"
       />
 
       <div className="px-4 lg:px-8 w-full">
