@@ -38,7 +38,7 @@ export const FreeCounter = ({
             variant="pro"
           >
             Upgrade
-            <Zap className="w-4 h-4 ml-2 fill-white" />
+            <Zap className="w-4 h-4 ml-2 fill-white hover:fill-brand-primary" />
           </Button>
         </CardContent>
       </Card>

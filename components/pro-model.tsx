@@ -1,4 +1,6 @@
 'use client';
+import axios from 'axios';
+import { useState } from 'react';
 import {
   Dialog,
   DialogContent,
@@ -69,6 +71,18 @@ const tools = [
 
 export const ProModel = () => {
   const proModel = usePro();
+  const [loading, setLoading] = useState(false);
+  const onSubscribe = async () => {
+    try {
+      setLoading(true);
+      const res = await axios.get('/api/stripe');
+      window.location.href = (await res).data.url;
+    } catch (error) {
+      console.log(error, 'STRIPE_CLIENT_ERROR');
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <Dialog
       open={proModel.isAvailable}
@@ -112,12 +126,13 @@ export const ProModel = () => {
         </DialogHeader>
         <DialogFooter>
           <Button
-            onClick={proModel.onOpen}
+            onClick={onSubscribe}
+            size="lg"
             className="w-full border-0"
             variant="pro"
           >
             Upgrade
-            <Zap className="w-4 h-4 ml-2 fill-white" />
+            <Zap className="w-4 h-4 ml-2 fill-white hover:fill-brand-primary" />
           </Button>
         </DialogFooter>
       </DialogContent>
