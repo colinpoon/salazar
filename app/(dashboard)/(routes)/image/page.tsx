@@ -40,8 +40,10 @@ import {
   FormField,
   FormItem,
 } from '@/components/ui/form';
+import { usePro } from '@/hooks/use-pro';
 
 export default function ImagePage() {
+  const proModel = usePro();
   const router = useRouter();
 
   const [images, setImages] = useState<string[]>([]);
@@ -100,7 +102,9 @@ export default function ImagePage() {
 
       form.reset();
     } catch (error: any) {
-      //is premium model?
+      if (error?.response?.status === 403) {
+        proModel.onOpen();
+      }
       console.log(error);
     } finally {
       router.refresh();

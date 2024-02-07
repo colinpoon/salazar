@@ -24,8 +24,10 @@ import {
   FormField,
   FormItem,
 } from '@/components/ui/form';
+import { usePro } from '@/hooks/use-pro';
 
 export default function MusicPage() {
+  const proModel = usePro();
   const router = useRouter();
   const [music, setMusic] = useState<string>();
   // const form = useForm<z.infer<typeof formSchema>>({
@@ -62,7 +64,9 @@ export default function MusicPage() {
       setMusic(response.data.audio);
       form.reset();
     } catch (error: any) {
-      //is premium model?
+      if (error?.response?.status === 403) {
+        proModel.onOpen();
+      }
       console.log(error);
     } finally {
       router.refresh();

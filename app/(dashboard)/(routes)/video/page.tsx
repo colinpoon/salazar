@@ -23,8 +23,10 @@ import {
   FormField,
   FormItem,
 } from '@/components/ui/form';
+import { usePro } from '@/hooks/use-pro';
 
 export default function VideoPage() {
+  const proModel = usePro();
   const router = useRouter();
   const [video, setVideo] = useState<string>();
   // const form = useForm<z.infer<typeof formSchema>>({
@@ -61,7 +63,9 @@ export default function VideoPage() {
       setVideo(response.data[0]);
       form.reset();
     } catch (error: any) {
-      //is premium model?
+      if (error?.response?.status === 403) {
+        proModel.onOpen();
+      }
       console.log(error);
     } finally {
       router.refresh();

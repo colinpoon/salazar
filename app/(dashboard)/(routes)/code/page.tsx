@@ -28,8 +28,10 @@ import {
   FormField,
   FormItem,
 } from '@/components/ui/form';
+import { usePro } from '@/hooks/use-pro';
 
 export default function CodePage() {
+  const proModel = usePro();
   const router = useRouter();
   const [messages, setMessages] = useState<
     ChatCompletionRequestMessage[]
@@ -78,7 +80,9 @@ export default function CodePage() {
       ]);
       form.reset();
     } catch (error: any) {
-      console.log(error);
+      if (error?.response?.status === 403) {
+        proModel.onOpen();
+      }
     } finally {
       router.refresh();
     }
