@@ -24,7 +24,7 @@ export const FreeCounter = ({
       <Card className="bg-brand-muted-1 border-0">
         <CardContent className="py-6">
           <div className="text-center text-sm text-white mb-4 space-y-2">
-            <p>{MAX_FREE_COUNT - apiLimitCount} Free Attempts</p>
+            <div>{MAX_FREE_COUNT - apiLimitCount} Free Attempts</div>
             <Progress
               className="h-3"
               value={(apiLimitCount / MAX_FREE_COUNT) * 100}
