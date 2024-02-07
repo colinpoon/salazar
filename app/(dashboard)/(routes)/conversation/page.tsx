@@ -25,8 +25,10 @@ import {
   FormField,
   FormItem,
 } from '@/components/ui/form';
+import { usePro } from '@/hooks/use-pro';
 
 export default function ConversationPage() {
+  const proModel = usePro();
   const router = useRouter();
   const [messages, setMessages] = useState<
     ChatCompletionRequestMessage[]
@@ -75,8 +77,9 @@ export default function ConversationPage() {
       ]);
       form.reset();
     } catch (error: any) {
-      //is premium model?
-      console.log(error);
+      if (error?.response?.status === 403) {
+        proModel.onOpen();
+      }
     } finally {
       //data refresh / hydrate
       router.refresh();

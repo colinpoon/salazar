@@ -7,8 +7,8 @@ interface ProModelStore {
 }
 
 export const usePro = create<ProModelStore>((set) => ({
-  isAvailable: true,
-  // isAvailable: false,
+  // isAvailable: true,
+  isAvailable: false,
   onOpen: (): void => set({ isAvailable: true }),
   onClose: (): void => set({ isAvailable: false }),
 }));

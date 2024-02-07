@@ -24,7 +24,7 @@ export const Heading = ({
         </div>
       </div>
       <div className="flex flex-col justify-center gap-3 mb-8">
-        <h2 className="text-2xl md:text-4xl text-black-500 text-center font-bold">
+        <h2 className="text-2xl md:text-4xl text-brand-muted-2 text-center font-bold">
           {title}
         </h2>
         <p className="text-muted-foreground font-light text-sm md:text-lg text-center">

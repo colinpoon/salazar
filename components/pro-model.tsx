@@ -77,7 +77,7 @@ export const ProModel = () => {
       <DialogContent>
         <DialogHeader>
           <DialogTitle className="flex justify-center items-center flex-col gap-y-4 pb-2">
-            <div className="flex items-center gap-x-2 font-bold text-xl">
+            <div className="flex items-center gap-x-2 font-bold text-xl text-brand-muted-2">
               Upgrade to Pro Model
               <Badge variant="pro" className="uppercase text-sm py-1">
                 pro
@@ -112,11 +112,9 @@ export const ProModel = () => {
         </DialogHeader>
         <DialogFooter>
           <Button
-          // disabled={loading}
-          // onClick={onSubscribe}
-          // size="lg"
-          // variant="pro"
-          // className="w-full"
+            onClick={proModel.onOpen}
+            className="w-full border-0"
+            variant="pro"
           >
             Upgrade
             <Zap className="w-4 h-4 ml-2 fill-white" />
@@ -124,5 +122,19 @@ export const ProModel = () => {
         </DialogFooter>
       </DialogContent>
     </Dialog>
+    // <Dialog>
+    //   <DialogContent>
+    //     <DialogHeader>
+    //       <DialogTitle>Are you absolutely sure?</DialogTitle>
+    //       <DialogDescription>
+    //         This action cannot be undone. Are you sure you want to
+    //         permanently delete this file from our servers?
+    //       </DialogDescription>
+    //     </DialogHeader>
+    //     <DialogFooter>
+    //       <Button type="submit">Confirm</Button>
+    //     </DialogFooter>
+    //   </DialogContent>
+    // </Dialog>
   );
 };
