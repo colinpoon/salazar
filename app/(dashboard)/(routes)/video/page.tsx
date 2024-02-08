@@ -27,35 +27,27 @@ import {
 import { usePro } from '@/hooks/use-pro';
 
 export default function VideoPage() {
-  const proModel = usePro();
   const router = useRouter();
+  const proModel = usePro();
   const [video, setVideo] = useState<string>();
-  // const form = useForm<z.infer<typeof formSchema>>({
-  //   resolver: zodResolver(formSchema),
-  //   defaultValues: {
-  //     prompt: '',
-  //   },
-  // });
+
   const formSchema = z.object({
     prompt: z.string().default(''),
-    // ...other fields
   });
-
   type FormValues = z.infer<typeof formSchema>;
-
   type DefaultValues = Omit<FormValues, 'prompt'>;
-
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: '',
     } as DefaultValues,
   });
+
   // loading state
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+    console.log('1', values);
     try {
       setVideo(undefined);
 
@@ -69,7 +61,7 @@ export default function VideoPage() {
       } else {
         toast.error('Oops! Something went wrong');
       }
-      console.log(error);
+      console.log('403', error);
     } finally {
       router.refresh();
     }

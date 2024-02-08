@@ -11,6 +11,7 @@ module.exports = {
     colors: {
       'brand-secondary': '#E7DAD9',
       'brand-primary': '#9BFF5D',
+      'brand-comp': '#151D24',
       'brand-muted-1': '#5F5A5A',
       'brand-muted-2': '#413E3E',
       'neutral-1': '#F2F2F2',

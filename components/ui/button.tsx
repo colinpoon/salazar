@@ -5,7 +5,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-normal ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
@@ -20,8 +20,17 @@ const buttonVariants = cva(
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
-        // pro: 'bg-gradient-to-r from-[#9BFF5D] via-[#d9d9d9] to-[#E7DAD9] text-brand-muted-2 border-0 hover:bg-gradient-to-l from-[#9BFF5D] via-[#d9d9d9] to-[#E7DAD9]',
         pro: 'bg-brand-primary text-brand-muted-2 border-0 shadow-md hover:bg-brand-secondary ',
+        underline:
+          // 'text-brand-muted-2 underline-offset-4 hover:underline',
+          'text-brand-primary underline-offset-4 hover:underline',
+
+        actionSecondary:
+          'bg-transparent border border-brand-primary border-2 text-brand-primary hover:bg-brand-primary hover:text-brand-comp hover:drop-shadow-md',
+        // 'bg-transparent border border-brand-muted-2 border-2 text-brand-muted-2 hover:bg-brand-muted-2 hover:text-brand-primary hover:drop-shadow-md',
+
+        actionTertiary:
+          'bg-brand-muted-2 text-brand-primary border-brand-muted-2 border-2 hover:bg-brand-primary hover:border hover:border-brand-muted-2 hover:border-2 hover:text-brand-muted-2 hover:drop-shadow-md',
       },
       size: {
         default: 'h-10 px-4 py-2',

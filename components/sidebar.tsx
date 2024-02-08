@@ -89,7 +89,7 @@ const Sidebar = ({
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col justify-between h-full text-black">
+    <div className="flex flex-col justify-between h-full text-brand-muted-2">
       <div className="px-[32] pt-[32px] flex-1">
         <Link
           href={'/dashboard'}
@@ -97,7 +97,7 @@ const Sidebar = ({
         >
           <h1
             className={cn(
-              'font-medium text-2xl text-brand-muted-1 cursor-pointer hover:text-black transition',
+              'font-medium text-2xl text-brand-muted-1 cursor-pointer hover:text-brand-muted-2 transition',
               montserrate.className
             )}
           >
