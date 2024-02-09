@@ -18,9 +18,10 @@ export const LandingHero = ({}) => {
   const { isSignedIn } = useAuth();
   return (
     <div className="flex flex-col">
-      {/* <div className="h-[94vh]"> */}
-      <div className="h-full">
-        {/* could clean this up */}
+      <div className="h-[94vh]">
+        {/* <div className="h-full"> */}
+        {/* USE COL-SPAN INSTEAD */}
+        {/* xs:w-12-cols md:w-6-cols lg:ml-2-cols lg:w-6-cols relative f-body-1*/}
         <div className="ml-[10%] mr-[20%] py-[13.25rem]">
           <div className="">
             {/*  */}

@@ -28,6 +28,8 @@ const buttonVariants = cva(
         actionSecondary:
           'bg-transparent border border-brand-primary border-2 text-brand-primary hover:bg-brand-primary hover:text-brand-comp hover:drop-shadow-md',
         // 'bg-transparent border border-brand-muted-2 border-2 text-brand-muted-2 hover:bg-brand-muted-2 hover:text-brand-primary hover:drop-shadow-md',
+        actionSecondary2:
+          'bg-transparent border border-brand-muted-2 border-2 text-brand-muted-2 hover:bg-brand-muted-2 hover:text-brand-secondary hover:drop-shadow-md',
 
         actionTertiary:
           'bg-brand-muted-2 text-brand-primary border-brand-muted-2 border-2 hover:bg-brand-primary hover:border hover:border-brand-muted-2 hover:border-2 hover:text-brand-muted-2 hover:drop-shadow-md',
