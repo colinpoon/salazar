@@ -20,7 +20,7 @@ export const LandingNav = ({}) => {
     <nav className="w-full p-6 bg-transparent flex items-center justify-between">
       <div className="flex flex-row gap-x-36">
         <Link href="/" className="flex items-center">
-          <div className="relative h-8 w-8 mr-4">
+          <div className="relative h-6 w-6 mr-4">
             <Image fill alt="logo" src={logo} />
           </div>
           <h1
@@ -33,7 +33,7 @@ export const LandingNav = ({}) => {
           </h1>
         </Link>
 
-        <div className="flex items-center gap-x-4">
+        {/* <div className="flex items-center gap-x-4">
           <Link href={'/sign-up'}>
             <Button variant="underline" className="text-lg">
               About
@@ -52,7 +52,7 @@ export const LandingNav = ({}) => {
               <ArrowUpRight className="h-5 w-5 ml-1" />
             </Button>
           </Link>
-        </div>
+        </div> */}
       </div>
 
       <div className="flex items-center gap-x-4">
