@@ -57,60 +57,64 @@ export const LandingAnnouncements = ({}) => {
     <div className="flex flex-col bg-brand-secondary p-24">
       <div className="">
         {announcements.map((item) => (
-          <div className="mb-[10.25rem]">
-            <div className="flex flex-col w-full mb-32">
-              <div className="border-b-2 border-brand-muted-1 mb-6"></div>
-              <div className="flex flex-row justify-between items-start text-brand-muted-1 mx-3">
-                <div className="flex flex-row gap-[13.75rem] justify-between">
-                  <div>{item.date}</div>
+          <>
+            <div className="mb-[10.25rem]">
+              <div className="flex flex-col w-full mb-32">
+                <div className="border-b-2 border-brand-muted-1 mb-6"></div>
+                <div className="flex flex-row justify-between items-start text-brand-muted-1 mx-3">
+                  <div className="flex flex-row gap-[13.75rem] justify-between">
+                    <div>{item.date}</div>
 
-                  <div className="flex flex-row items-center">
-                    Salazar <ArrowDown className="h-5 w-5 ml-1" />
+                    <div className="flex flex-row items-center">
+                      Salazar <ArrowDown className="h-5 w-5 ml-1" />
+                    </div>
                   </div>
+                  <span>Product Announcements</span>
                 </div>
-                <span>Product Announcements</span>
               </div>
-            </div>
-            <div className="text-brand-muted-2 ml-[15.75rem] w-[55%] flex flex-col gap-5">
-              <div className="text-xl">
-                <h3 className="text-left font-normal space-y-5 sm:text-lg md:text-xl lg:text-2xl mb-12 ">
-                  {item.title}
-                </h3>
-              </div>
-              <div>{item.overiew}</div>
-              <ul className="flex flex-col gap-4 my-6">
-                <li>
-                  <p>
-                    <strong>{item.desc1Title}</strong> {item.desc1}
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    <strong>{item.desc2Title}</strong> {item.desc2}
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    <strong>{item.desc3Title}</strong> {item.desc3}
-                  </p>
-                </li>
-              </ul>
-              <div>{item.impact}</div>
-              <div className="flex justify-between mt-24 item-center">
-                <Link href={isSignedIn ? `${item.link}` : '/sign-up'}>
-                  <Button
-                    variant="actionSecondary2"
-                    className="text-sm"
-                    size="sm"
+              <div className="text-brand-muted-2 ml-[15.75rem] w-[55%] flex flex-col gap-5">
+                <div className="text-xl">
+                  <h3 className="text-left font-normal space-y-5 sm:text-lg md:text-xl lg:text-2xl mb-12 ">
+                    {item.title}
+                  </h3>
+                </div>
+                <div>{item.overiew}</div>
+                <ul className="flex flex-col gap-4 my-6">
+                  <li>
+                    <p>
+                      <strong>{item.desc1Title}</strong> {item.desc1}
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <strong>{item.desc2Title}</strong> {item.desc2}
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <strong>{item.desc3Title}</strong> {item.desc3}
+                    </p>
+                  </li>
+                </ul>
+                <div>{item.impact}</div>
+                <div className="flex justify-between mt-24 item-center">
+                  <Link
+                    href={isSignedIn ? `${item.link}` : '/sign-up'}
                   >
-                    Try Free
-                    <ArrowUpRight className="h-5 w-5 ml-1" />
-                  </Button>
-                </Link>
-                <Circle fill="#5F5A5A" className="h-5 w-5 " />
+                    <Button
+                      variant="actionSecondary2"
+                      className="text-sm"
+                      size="sm"
+                    >
+                      Try Free
+                      <ArrowUpRight className="h-5 w-5 ml-1" />
+                    </Button>
+                  </Link>
+                  <Circle fill="#5F5A5A" className="h-5 w-5 " />
+                </div>
               </div>
             </div>
-          </div>
+          </>
         ))}
       </div>
     </div>
