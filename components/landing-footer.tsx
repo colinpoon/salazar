@@ -35,19 +35,19 @@ export const LandingFooter = ({}) => {
         </Link>
       </div>
       <div className="flex items-center gap-x-4">
-        <Link href={'/sign-up'}>
+        {/* <Link href={''}>
           <Button variant="underline" className="text-lg">
             About
             <ArrowUpRight className="h-5 w-5 ml-1" />
           </Button>
-        </Link>
-        <Link href={'/sign-up'}>
+        </Link> */}
+        <Link href={'https://github.com/colinpoon'}>
           <Button variant="underline" className="text-lg">
             Github
             <ArrowUpRight className="h-5 w-5 ml-1" />
           </Button>
         </Link>
-        <Link href={'/sign-up'}>
+        <Link href={'https://www.linkedin.com/in/colinpoon/'}>
           <Button variant="underline" className="text-lg">
             LinkedIn
             <ArrowUpRight className="h-5 w-5 ml-1" />
