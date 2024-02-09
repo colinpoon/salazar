@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 
 import { Montserrat } from 'next/font/google';
 import logo from 'public/logo-1.svg';
-import { ArrowUpRight, MoveUpRight } from 'lucide-react';
+import { ArrowUpRight, Circle, MoveUpRight } from 'lucide-react';
 
 const font = Montserrat({
   weight: '600',
@@ -18,7 +18,7 @@ export const LandingNav = ({}) => {
   const { isSignedIn } = useAuth();
   return (
     <nav className="w-full p-6 bg-transparent flex items-center justify-between">
-      <div className="flex flex-row gap-x-36">
+      <div className="flex flex-row gap-x-36 items-center">
         <Link href="/" className="flex items-center">
           <div className="relative h-6 w-6 mr-4">
             <Image fill alt="logo" src={logo} />
@@ -54,7 +54,7 @@ export const LandingNav = ({}) => {
           </Link>
         </div> */}
       </div>
-
+      <Circle fill="#9BFF5D" className="h-6 w-6 mr-4" />
       <div className="flex items-center gap-x-4">
         <Link href={isSignedIn ? '/dashboard' : '/sign-up'}>
           <Button variant="underline" className="text-lg">
