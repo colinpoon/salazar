@@ -73,7 +73,7 @@ export const LandingAnnouncements = ({}) => {
             </div>
             <div className="text-brand-muted-2 ml-[15.75rem] w-[55%] flex flex-col gap-5">
               <div className="text-xl">
-                <h3 className="text-left font-light space-y-5 sm:text-lg md:text-xl lg:text-2xl mb-12">
+                <h3 className="text-left font-normal space-y-5 sm:text-lg md:text-xl lg:text-2xl mb-12 ">
                   {item.title}
                 </h3>
               </div>
