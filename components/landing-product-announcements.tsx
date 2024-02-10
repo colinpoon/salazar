@@ -54,7 +54,7 @@ const announcements = [
 export const LandingAnnouncements = ({}) => {
   const { isSignedIn } = useAuth();
   return (
-    <div className="flex flex-col bg-brand-secondary p-24">
+    <div className="flex flex-col bg-brand-secondary px-8 pt-14  sm:p-16 md:p-24 lg:p-28">
       <div className="">
         {announcements.map((item) => (
           <>
@@ -62,7 +62,7 @@ export const LandingAnnouncements = ({}) => {
               <div className="flex flex-col w-full mb-32">
                 <div className="border-b-2 border-brand-muted-1 mb-6"></div>
                 <div className="flex flex-row justify-between items-start text-brand-muted-1 mx-3">
-                  <div className="flex flex-row gap-[13.75rem] justify-between">
+                  <div className="flex flex-col gap-2 md:flex-row md:w-[35%] justify-between">
                     <div>{item.date}</div>
 
                     <div className="flex flex-row items-center">
@@ -72,7 +72,7 @@ export const LandingAnnouncements = ({}) => {
                   <span>Product Announcements</span>
                 </div>
               </div>
-              <div className="text-brand-muted-2 ml-[15.75rem] w-[55%] flex flex-col gap-5">
+              <div className="mx-0 sm:mx-16 md:mx-24 lg:mx-36 p-0 md:pr-[5%] lg:pr-[20%]">
                 <div className="text-xl">
                   <h3 className="text-left font-normal space-y-5 sm:text-lg md:text-xl lg:text-2xl mb-12 ">
                     {item.title}
@@ -110,7 +110,11 @@ export const LandingAnnouncements = ({}) => {
                       <ArrowUpRight className="h-5 w-5 ml-1" />
                     </Button>
                   </Link>
-                  <Circle fill="#5F5A5A" className="h-5 w-5 " />
+                  <Circle
+                    fill="#5F5A5A"
+                    stroke="#5F5A5A"
+                    className="h-5 w-5 "
+                  />
                 </div>
               </div>
             </div>

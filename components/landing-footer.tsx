@@ -17,7 +17,7 @@ const font = Montserrat({
 export const LandingFooter = ({}) => {
   const { isSignedIn } = useAuth();
   return (
-    <nav className="w-full p-6 bg-transparent flex items-center justify-between">
+    <footer className="w-full p-6 bg-brand-comp flex items-center justify-between">
       <div className="flex flex-row gap-x-36 items-center">
         <Link href="/" className="flex items-center">
           <div className="relative h-6 w-6 mr-4">
@@ -26,12 +26,10 @@ export const LandingFooter = ({}) => {
           <h1
             className={cn(
               // 'text-3xl font-bold text-brand-primary',
-              'text-3xl font-bold text-brand-comp',
+              'text-3xl font-bold text-transparent',
               font.className
             )}
-          >
-            Salazar
-          </h1>
+          ></h1>
         </Link>
       </div>
       <div className="flex items-center gap-x-4">
@@ -54,7 +52,7 @@ export const LandingFooter = ({}) => {
           </Button>
         </Link>
       </div>
-    </nav>
+    </footer>
   );
 };
 

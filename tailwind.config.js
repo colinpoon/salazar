@@ -25,9 +25,11 @@ module.exports = {
     },
     container: {
       center: true,
-      padding: "2rem",
+      // padding: "",
       screens: {
-        "2xl": "1400px",
+        'sm': '500px',
+        // => @media (min-width: 500px) { ... }
+  
         'sm': '576px',
         // => @media (min-width: 576px) { ... }
 
@@ -35,7 +37,9 @@ module.exports = {
         // => @media (min-width: 960px) { ... }
 
         'lg': '1440px',
-        // => @media (min-width: 1440px) { ... 
+        // => @media (min-width: 1440px) { ... }
+        
+        "2xl": "1400px",
       },
     },
     extend: {

@@ -17,7 +17,7 @@ const font = Montserrat({
 export const LandingNav = ({}) => {
   const { isSignedIn } = useAuth();
   return (
-    <nav className="w-full p-6 bg-transparent flex items-center justify-between">
+    <nav className="fixed w-full p-6 bg-brand-comp flex items-center justify-between">
       <div className="flex flex-row gap-x-36 items-center">
         <Link href="/" className="flex items-center">
           <div className="relative h-6 w-6 mr-4">
@@ -54,7 +54,11 @@ export const LandingNav = ({}) => {
           </Link>
         </div> */}
       </div>
-      <Circle fill="#9BFF5D" className="h-6 w-6 mr-4" />
+      {/* <Circle
+        fill="#9BFF5D"
+        stroke="#9BFF5D"
+        className="h-6 w-6 ml-4"
+      /> */}
       <div className="flex items-center gap-x-4">
         <Link href={isSignedIn ? '/dashboard' : '/sign-up'}>
           <Button variant="underline" className="text-lg">
