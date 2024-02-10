@@ -17,8 +17,8 @@ const font = Montserrat({
 export const LandingHero = ({}) => {
   const { isSignedIn } = useAuth();
   return (
-    // <div className="flex flex-col h-[100vh]">
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-[100vh]">
+      {/* // <div className="flex flex-col h-full"> */}
       {/* <div className="flex flex-col h-[95vh]"> */}
 
       <div className="mx-16 sm:mx-16 md:mx-24 lg:mx-36 p-0 md:pr-[5%] lg:pr-[20%] py-[13.25rem] mt-[88px]">
