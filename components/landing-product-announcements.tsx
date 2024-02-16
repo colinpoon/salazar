@@ -97,6 +97,8 @@ export const LandingAnnouncements = ({}) => {
                   </li>
                 </ul>
                 <div>{item.impact}</div>
+
+                {/* make a component for the code generator section replicating the code response, return it here if it's tittle is code response */}
                 <div className="flex justify-between mt-24 item-center">
                   <Link
                     href={isSignedIn ? `${item.link}` : '/sign-up'}

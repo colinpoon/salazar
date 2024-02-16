@@ -22,6 +22,11 @@ export const LandingHero = ({}) => {
       {/* <div className="flex flex-col h-[95vh]"> */}
 
       <div className="mx-16 sm:mx-16 md:mx-24 lg:mx-36 p-0 md:pr-[5%] lg:pr-[20%] py-[13.25rem] mt-[88px]">
+        {/* still problems on mobile  height and scrolling 
+          fix top and bottom padding for mobile
+
+        
+        ***/}
         <div className="">
           {/*  */}
           <div className="text-brand-primary sm:text-xs md:text-sm lg:text-md text-bold font-light ml-1">
