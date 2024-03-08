@@ -52,7 +52,7 @@ export const LandingHero = ({}) => {
             craft dynamic videos, design stunning images, compose
             original music, and engage users effortlessly with our NLU
             & NLP chatbot. Seamlessly integrated and user-friendly,
-            SynthAI Pro is your shortcut to innovation. Subscribe now
+            Salazar Pro is your shortcut to innovation. Subscribe now
             to transform ideas into reality and experience the future
             of AI-driven creativity.
           </h3>
