@@ -6,6 +6,8 @@ import { NextResponse } from 'next/server';
 
 const settingsUrl = absoluteUrl('/settings');
 
+export const maxDuration = 300;
+
 export async function GET() {
   try {
     const { userId } = auth();
