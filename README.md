@@ -1,6 +1,8 @@
 ## Salazar
- 
  SaaS AI Platform
+
+## Live Deployment 
+ https://salazar-one.vercel.app/
 
 ## Getting Started
 
