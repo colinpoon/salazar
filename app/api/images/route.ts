@@ -51,15 +51,16 @@ export async function POST(req: Request) {
         }
       );
     }
-    // const freeTrial = await checkApiLimit();
-    // const isPro = await checkSubscription();
-
-    // if (!freeTrial && !isPro) {
-    //   return new NextResponse(
-    //     'Free trial has expired. Please upgrade to pro.',
-    //     { status: 403 }
-    //   );
-    // }
+    //////////////////////////////////////////////////////
+    // CHANGE TO THE UPDATED OPENAI API
+    // from openai import OpenAI
+    // client = OpenAI()
+    //   const response = await openai.images.generate({
+    // model: 'dall-e-3',
+    //   prompt: prompt,
+    //   n: parseInt(amount, 10),
+    //   size: resolution,
+    // });
 
     const response = await openai.createImage({
       // model: 'dall-e-3',
