@@ -37,12 +37,7 @@ export default function CodePage() {
   const [messages, setMessages] = useState<
     ChatCompletionRequestMessage[]
   >([]);
-  // const form = useForm<z.infer<typeof formSchema>>({
-  //   resolver: zodResolver(formSchema),
-  //   defaultValues: {
-  //     prompt: '',
-  //   },
-  // });
+
   const formSchema = z.object({
     prompt: z.string().default(''),
     // ...other fields
