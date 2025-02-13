@@ -32,33 +32,7 @@ export const LandingNav = ({}) => {
             Salazar
           </h1>
         </Link>
-
-        {/* <div className="flex items-center gap-x-4">
-          <Link href={'/sign-up'}>
-            <Button variant="underline" className="text-lg">
-              About
-              <ArrowUpRight className="h-5 w-5 ml-1" />
-            </Button>
-          </Link>
-          <Link href={'/sign-up'}>
-            <Button variant="underline" className="text-lg">
-              Github
-              <ArrowUpRight className="h-5 w-5 ml-1" />
-            </Button>
-          </Link>
-          <Link href={'/sign-up'}>
-            <Button variant="underline" className="text-lg">
-              LinkedIn
-              <ArrowUpRight className="h-5 w-5 ml-1" />
-            </Button>
-          </Link>
-        </div> */}
       </div>
-      {/* <Circle
-        fill="#9BFF5D"
-        stroke="#9BFF5D"
-        className="h-6 w-6 ml-4"
-      /> */}
       <div className="flex items-center gap-x-4">
         <Link href={isSignedIn ? '/dashboard' : '/sign-up'}>
           <Button variant="underline" className="text-lg">
@@ -76,7 +50,3 @@ export const LandingNav = ({}) => {
     </nav>
   );
 };
-
-{
-  /* <div className={cn('flex items-center')}> */
-}
